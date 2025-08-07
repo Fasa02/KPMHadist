@@ -301,7 +301,7 @@
 /* Newest Articles */
 #articles {
   background-color: #ffffff;
-  margin-top: -8rem;
+  margin-top: -6rem;
   margin-bottom: 1rem;
 }
 
@@ -469,5 +469,244 @@
   }
   .contact-title {
     margin-bottom: 1.5rem;
+  }
+}
+
+/* ==== RESPONSIVE OVERRIDES ==== */
+
+/* Tablet (≤992px) */
+@media (max-width: 992px) {
+  /* NAVBAR */
+  .navbar-nav {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem;
+  }
+  .navbar-collapse {
+    background: white;
+    padding: 1rem;
+  }
+
+  /* SERVICES: jadi 2 kolom */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* ABOUT: jadi 1 kolom */
+  .about-paragraphs {
+    flex-direction: column !important;
+  }
+  .about-box-top,
+  .about-box-bottom {
+    transform: none !important;
+  }
+
+  /* VISION-MISSION */
+  .about-vision-mission {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .vm-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .vm-text {
+    margin-top: 0.75rem !important;
+  }
+
+  /* ARTICLES */
+  #articles .row {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  /* FOOTER */
+  .footer .container {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .footer-col {
+    text-align: center !important;
+    margin-bottom: 1.5rem !important;
+  }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  /* NAVBAR brand */
+  .navbar-brand {
+    font-size: 1.25rem !important;
+  }
+
+  /* NAVBAR link text */
+  .nav-link {
+    font-size: 1rem !important;
+  }
+
+  /* HERO heading */
+  #home h1 {
+    font-size: 2rem !important;
+    line-height: 1.3 !important;
+  }
+
+  #home p {
+    font-size: 1rem !important;
+  }
+
+  /* SERVICES: 1 kolom */
+  .services-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+
+  .service-box {
+    align-items: center !important;
+  }
+
+  /* OUR MISSION subtitle pindah bawah title */
+  .about-vision-mission h2 + p {
+    margin-top: 0.75rem !important;
+    text-align: center !important;
+  }
+
+  /* CONTACT */
+  .contact-section .row {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+  .contact-title {
+    margin: 0 auto 1rem !important;
+  }
+  .contact-list li {
+    justify-content: center !important;
+  }
+}
+
+/* === RESPONSIVE FIXES TANPA GANGGU DESKTOP === */
+
+@media screen and (max-width: 768px) {
+
+  /* ==== NAVBAR ==== */
+  .navbar-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .navbar {
+    padding: 10px;
+  }
+
+  .navbar-logo img {
+    max-width: 150px;
+  }
+
+  /* ==== OUR SERVICES ==== */
+  .services-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-item {
+    width: 90%;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  /* ==== OUR MISSION ==== */
+  .about-mission {
+    margin-top: 20px;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .about-mission p {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+
+  /* ==== NEWEST ARTICLE ==== */
+  .article-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .article-left,
+  .article-right {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .in-collaboration {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Hide navbar items on small screens */
+.navbar-collapse {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .navbar-collapse {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 70%;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .navbar-collapse.show {
+    display: flex;
+  }
+
+  .navbar-toggler {
+    display: block !important;
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+  }
+
+  .navbar-desktop {
+    display: none;
+  }
+}
+
+/* Responsive layout untuk Our Mission */
+@media (max-width: 768px) {
+  .vm-mission {
+    grid-template-columns: 1fr; /* ubah jadi 1 kolom */
+    gap: 1rem 0; /* baris 1rem, kolom 0 */
+  }
+
+  .vm-mission .vm-btn,
+  .vm-mission .vm-text {
+    grid-column: 1;
+  }
+
+  .vm-row.vm-mission {
+    flex-direction: column; /* stack vertical di mobile */
+    align-items: flex-start; /* rata kiri */
+  }
+
+  .vm-text {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+  .vm-title {
+    text-align: center;
+    grid-column: 1 / -1;
   }
 }
