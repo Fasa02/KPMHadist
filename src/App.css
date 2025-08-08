@@ -61,8 +61,8 @@ body {
 /* About paragraphs */
 .about-paragraphs {
   display: flex;
-  gap: 2rem;
-  margin-bottom: 4rem;
+  gap: 0rem;
+  margin-bottom: 3rem;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -253,10 +253,6 @@ body {
 /* ---------- Small helpers ---------- */
 .text-muted { color:#6c757d; }
 
-/* =========================
-   NAVBAR (AS-IS from your original messy CSS — DO NOT CHANGE)
-   (I pasted this block verbatim so appearance/behavior stay identical)
-   ========================= */
 
 /* Tablet (≤992px) - NAVBAR part (original) */
 @media (max-width: 992px) {
@@ -283,13 +279,16 @@ body {
   .about-box-top,
   .about-box-bottom {
     transform: none !important;
+    text-align: justify;
   }
 
   /* VISION-MISSION */
   .about-vision-mission {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 2rem !important;
+    gap: 1rem !important;
+    margin: auto;
+    width: 80%;
   }
   .vm-row {
     flex-direction: column !important;
@@ -396,13 +395,14 @@ body {
 
   /* SERVICES: 1 kolom & center */
   .services-grid { grid-template-columns:1fr !important; text-align:center !important; display:flex; flex-direction:column; align-items:center; }
-  .service-item { width:90%; margin-bottom:20px; text-align:center; }
+  .service-item { width:90%; margin-bottom:20px; text-align:left; }
 
   /* OUR MISSION: mobile - move mission text under button (kept) */
   .vm-mission { grid-template-columns: 1fr; gap: 1rem 0; }
   .vm-mission .vm-btn, .vm-mission .vm-text { grid-column:1; }
   .vm-row.vm-mission { flex-direction: column; align-items: flex-start; }
-  .vm-text { margin-left:0; margin-top:1rem; }
+  .vm-text { margin-left:0; margin-top:1rem; text-align: justify; }
+  .vm-textv { margin-left:0; margin-top:1rem; text-align: center; }
   .vm-title { text-align:center; grid-column:1 / -1; }
 
   /* CONTACT */
@@ -445,4 +445,6 @@ body {
     text-align: center;
     flex-wrap: wrap;
   }
+
+  .commitment-section { margin-bottom:3rem; margin: auto; width: 80%; }
 }

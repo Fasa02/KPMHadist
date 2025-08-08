@@ -161,7 +161,7 @@ export default function App() {
              {/* About Section */}
             <section id="about" className="py-5 bg-white">
               <div className="container">
-                <div className="text-center mb-5">
+                <div className="text-center mb-2">
                   <span className="about-title-badge">About KPM Hadist</span>
                 </div>
 
@@ -189,7 +189,7 @@ export default function App() {
                   {/* Vision Row */}
                   <div className="vm-row vm-vision">
                     <button className="vm-btn">Our Vision</button>
-                    <p className="vm-text">
+                    <p className="vm-textv">
                       To become the leading Center for the Body of Knowledge, Concern, and Sustainability for Government Programs.
                     </p>
                   </div>

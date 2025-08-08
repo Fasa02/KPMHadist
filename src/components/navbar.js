@@ -21,7 +21,7 @@ export default function Navbar() {
         height: '80px'
       }}
     >
-      <div className="container d-flex justify-content-center">
+      <div className="container d-flex justify-content-end">
         {/* Toggle button (hamburger) */}
         <button
           className="navbar-toggler"
