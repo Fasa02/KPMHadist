@@ -89,27 +89,47 @@ export default function App() {
                     into tangible community welfare. We bridge the gap between policy
                     and people, fostering growth, knowledge, and empowerment.
                   </p>
-                  <h5 className="mb-4" style={{ color: '#333', fontWeight: '600', marginTop:'80px' }}>
+                  <h5 className="mb-4" style={{ color: '#333', fontWeight: '600', marginTop: '80px', textAlign: 'center' }}>
                     In Collaboration With
                   </h5>
                   <div className="row justify-content-center g-4">
                     {[
-                      { src: '/images/gizi.svg', alt: 'Badan Gizi Nasional' },
-                      { src: '/images/kemensos.svg', alt: 'Kementerian Sosial' },
-                      { src: '/images/semarang.svg', alt: 'Pemerintah Kota Semarang' },
-                      { src: '/images/pdam.svg', alt: 'PDAM Semarang' }
-                    ].map((logo, idx) => (
-                    <div className="col-6 col-md-3 d-flex justify-content-center" key={idx}>
-                      <div className="logo-box">
-                        <img
-                          src={logo.src}
-                          alt={logo.alt}
-                          className="collab-logo"
-                        />
+                      { 
+                        src: '/images/gizi.svg', 
+                        alt: 'Badan Gizi Nasional',
+                        title: 'Badan Gizi Nasional',
+                        subtitle: 'National Nutrition Agency'
+                      },
+                      { 
+                        src: '/images/kemensos.svg', 
+                        alt: 'Kementerian Sosial Republik Indonesia',
+                        title: 'Kementerian Sosial Republik Indonesia',
+                        subtitle: 'Ministry of Social Affairs of the Republic of Indonesia'
+                      },
+                      { 
+                        src: '/images/semarang.svg', 
+                        alt: 'Pemerintah Kota Semarang',
+                        title: 'Pemerintah Kota Semarang',
+                        subtitle: 'Semarang City Government'
+                      },
+                      { 
+                        src: '/images/pdam.jpeg', 
+                        alt: 'PDAM Semarang',
+                        title: 'PDAM Indramayu',
+                        subtitle: 'Indramayu City Water Utility'
+                      }
+                    ].map((item, idx) => (
+                      <div className="col-6 col-md-3 d-flex justify-content-center" key={idx}>
+                        <div className="collab-card">
+                          <img src={item.src} alt={item.alt} className="collab-card-logo" />
+                          <div className="collab-card-text">
+                            <div className="collab-card-title">{item.title}</div>
+                            <div className="collab-card-subtitle">{item.subtitle}</div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
                 </div>
               </section>
 
