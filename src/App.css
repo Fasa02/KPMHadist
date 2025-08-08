@@ -447,4 +447,9 @@ body {
   }
 
   .commitment-section { margin-bottom:3rem; margin: auto; width: 80%; }
+  .commitment-badge {
+  display:inline-block; background-color:var(--yellow); color:#333; font-weight:700; font-size:1.3rem;
+  padding:0.5rem 2rem; border-radius:999px; line-height:1.2; margin-top:3rem;
+}
+.commitment-desc { margin-top:1.5rem; font-size:1rem; line-height:1.6; max-width:1200px; margin-left:auto; margin-right:auto; text-align:justify; }
 }
