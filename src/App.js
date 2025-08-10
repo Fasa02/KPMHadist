@@ -254,7 +254,7 @@ export default function App() {
                             <button className="gallery-thumb" aria-label={`Open gallery image ${idx + 1}`}>
                               <img src={src} alt={`Gallery ${idx + 1}`} />
                               <div className="gallery-overlay">
-                                <span className="gallery-cta">View</span>
+                                <span className="gallery-cta"></span>
                               </div>
                             </button>
                           </div>
