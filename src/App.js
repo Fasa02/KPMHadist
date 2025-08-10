@@ -237,6 +237,32 @@ export default function App() {
                       The success of Indonesia's "Golden Generation 2045" mission hinges on the nutritional foundation of its people. The Free Nutritious Meal program is a critical government initiative in this endeavor. While initially funded by the national budget, its long-term success relies on a self-sustaining system. KPM HADIST is deeply committed to this vision, recognizing that active participation from non-governmental institutions is vital for achieving our shared national goals.
                     </p>
                   </div>
+                  {/* Gallery (DIV, seperti yang kamu minta) */}
+                  <div className="gallery-section py-5 bg-white">
+                    <div className="container">
+                      <h3 className="text-center mb-4" style={{ color: '#333', fontWeight: 600 }}>
+                        Gallery
+                      </h3>
+                      <div className="gallery-grid">
+                        {[
+                          '/images/gallery1.jpeg',
+                          '/images/gallery2.jpeg',
+                          '/images/gallery3.jpeg',
+                          '/images/gallery4.jpeg'
+                        ].map((src, idx) => (
+                          <div className="gallery-item" key={idx}>
+                            <button className="gallery-thumb" aria-label={`Open gallery image ${idx + 1}`}>
+                              <img src={src} alt={`Gallery ${idx + 1}`} />
+                              <div className="gallery-overlay">
+                                <span className="gallery-cta">View</span>
+                              </div>
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="contact-partnership text-center">
                     <h5>Contact Us for Partnerships</h5>
                     <a
