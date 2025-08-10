@@ -1,7 +1,7 @@
 // src/components/Navbar.js
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import '../App.css'; // untuk akses global style jika ada
+import React, { useState, useEffect, useRef } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import '../App.css';
 
 export default function Navbar() {
   const items = [
@@ -10,6 +10,36 @@ export default function Navbar() {
     { label: 'MBG', to: '/mbg' },
     { label: 'Articles', to: '/articles' }
   ];
+
+  const [open, setOpen] = useState(false); // collapse state
+  const collapseRef = useRef(null);
+  const location = useLocation();
+
+  // Close menu whenever route changes (when user navigates)
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
+
+  // Close menu if window resized to desktop size (so it doesn't stay open)
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth > 768) setOpen(false);
+    }
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Close when clicking outside the collapse area (useful on mobile)
+  useEffect(() => {
+    function handleDocClick(e) {
+      if (!open) return;
+      const clickedInside = collapseRef.current && collapseRef.current.contains(e.target);
+      const clickedToggler = e.target.closest('.navbar-toggler');
+      if (!clickedInside && !clickedToggler) setOpen(false);
+    }
+    document.addEventListener('click', handleDocClick);
+    return () => document.removeEventListener('click', handleDocClick);
+  }, [open]);
 
   return (
     <nav
@@ -21,29 +51,32 @@ export default function Navbar() {
         height: '80px'
       }}
     >
-      <div className="container d-flex justify-content-end">
+      <div className="container d-flex justify-content-end" style={{ position: 'relative' }}>
         {/* Toggle button (hamburger) */}
         <button
           className="navbar-toggler"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
-          aria-expanded="false"
+          aria-expanded={open ? 'true' : 'false'}
           aria-label="Toggle navigation"
+          onClick={() => setOpen(prev => !prev)}
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon" />
         </button>
 
-        {/* Menu */}
-        <div className="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+        {/* Menu - controlled by React state */}
+        <div
+          ref={collapseRef}
+          className={`collapse navbar-collapse justify-content-center ${open ? 'show' : ''}`}
+          id="navbarSupportedContent"
+        >
           <ul className="navbar-nav align-items-center gap-lg-5 text-center">
-            {/* Kiri */}
             {items.slice(0, 2).map(item => (
               <li className="nav-item" key={item.to}>
                 <NavLink
                   to={item.to}
                   end
+                  onClick={() => setOpen(false)}
                   className={({ isActive }) =>
                     'nav-link' +
                     (isActive
@@ -57,18 +90,17 @@ export default function Navbar() {
               </li>
             ))}
 
-            {/* Logo tengah */}
             <li className="nav-item my-2 my-lg-0">
-              <NavLink to="/">
+              <NavLink to="/" onClick={() => setOpen(false)}>
                 <img src="/images/logo.svg" alt="KPM HADIST" height="40" />
               </NavLink>
             </li>
 
-            {/* Kanan */}
             {items.slice(2).map(item => (
               <li className="nav-item" key={item.to}>
                 <NavLink
                   to={item.to}
+                  onClick={() => setOpen(false)}
                   className={({ isActive }) =>
                     'nav-link' +
                     (isActive
