@@ -21,7 +21,7 @@ const management = [
 ];
 
 const coreValues = [ 
-  { term: 'Ṣhalawat', desc: 'menjunjung tinggi nilai keislaman kepada allah dan rasul saw' },
+  { term: 'Ṣhalawat', desc: 'Upholding Islamic values towards Allah and the Prophet Muhammad SAW' },
   { term: 'Ṣiddīq', desc: 'We serve with unwavering dedication, honesty, loyalty, and a commitment to just and fair practices.' },
   { term: 'Originality', desc: 'We constantly strive to produce new and impactful innovations and inventions.' },
   { term: 'Reporting', desc: 'We prioritize rigorous evaluation, monitoring, and balanced processes in all our work.' },
